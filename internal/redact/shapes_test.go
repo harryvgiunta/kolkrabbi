@@ -27,6 +27,7 @@ func TestClassifyInfersEverySupportedShape(t *testing.T) {
 		{"nvidia", "nvapi-0123456789abcdef", "nvidia"},
 		{"replicate", "r8_0123456789abcdef", "replicate"},
 		{"huggingface", "hf_0123456789abcdef", "huggingface"},
+		{"yolo-auto", "yolo_0123456789abcdef", "yolo-auto"},
 		{"openai legacy", "sk-" + strings.Repeat("a", 40), "openai"},
 	}
 	for _, tt := range tests {

@@ -121,6 +121,7 @@ quirks. A new provider's prefix therefore needs no kolk release.
 | `nvapi-` | nvidia | exact |
 | `r8_` | replicate | exact |
 | `hf_` | huggingface | exact |
+| `yolo_` | yolo-auto | exact |
 | `sk-` + ≥ 40 alphanumerics | openai (legacy) | **catch-all, lowest priority — AMBIGUOUS** |
 | *no prefix* — Mistral (32 alnum), Cohere (40), Together (hex), any self-hosted gateway | — | **undetectable by shape** |
 
@@ -203,7 +204,7 @@ at all).
 |---|---|---|
 | **0** | *(a secret-bearing flag)* | **structurally empty, and printed as empty** so nobody adds one. `kolk key --why` renders `0  flag  (none — by design; a secret in argv is world-readable)`. |
 | **1** | `KOLK_API_KEY` | provider from `KOLK_PROVIDER`, else inferred from shape. Shape mismatch **warns**, never re-routes. |
-| **2** | provider-native env | a **curated** list only: `OPENROUTER_API_KEY` `ANTHROPIC_API_KEY` `OPENAI_API_KEY` `GEMINI_API_KEY` `GROQ_API_KEY` `XAI_API_KEY` `MISTRAL_API_KEY` `TOGETHER_API_KEY` `DEEPSEEK_API_KEY`. Auto-deriving a name from a provider id is ambiguous the moment an id contains an underscore, and it makes the bash-tool deny list unknowable. `OPENROUTER_API_KEY` / `OPENROUTER_BASE_URL` **keep working forever** (arch §9 already promises it). |
+| **2** | provider-native env | a **curated** list only: `OPENROUTER_API_KEY` `ANTHROPIC_API_KEY` `OPENAI_API_KEY` `GEMINI_API_KEY` `GROQ_API_KEY` `XAI_API_KEY` `MISTRAL_API_KEY` `TOGETHER_API_KEY` `DEEPSEEK_API_KEY` `YOLO_AUTO_API_KEY`. Auto-deriving a name from a provider id is ambiguous the moment an id contains an underscore, and it makes the bash-tool deny list unknowable. `OPENROUTER_API_KEY` / `OPENROUTER_BASE_URL` **keep working forever** (arch §9 already promises it). |
 | **3** | **the store** — the manifest entry for this `Ref`, routed to its **one** named backend | `file` (default) · `keychain` · `dpapi` · `helper:<name>`. |
 | **4** | none | → the three-state outcome screen (§1.5) |
 

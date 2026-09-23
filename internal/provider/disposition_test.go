@@ -49,7 +49,7 @@ func TestEveryProviderHasADispositionAndOnlyShippedOnesHaveCLIRows(t *testing.T)
 		}
 	}
 	// A chosen API-key path names the key shape redaction already knows.
-	for _, provider := range []string{"xai", "google"} {
+	for _, provider := range []string{"xai", "google", "yolo-auto"} {
 		d, _ := dispositionFor(provider)
 		if d.KeyShape == "" || !strings.HasPrefix(d.APIBase, "https://") {
 			t.Fatalf("%s: an API-key path needs its key shape and base URL: %+v", provider, d)

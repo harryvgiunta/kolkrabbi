@@ -114,6 +114,23 @@ var dispositions = []Disposition{
 		},
 	},
 	{
+		Provider: "yolo-auto", Status: dispositionChosen,
+		AccessPath: "API key on the Yolo-Auto OpenAI-compatible endpoint",
+		APIBase:    "https://yolo-auto.com/v1",
+		KeyEnv:     "YOLO_AUTO_API_KEY", KeyShape: "yolo_",
+		Billing:      "flat-rate plans billed monthly, with no per-token overage and a free tier; a reply carries no per-token price, so it is metered and unpriced, never an estimate",
+		Capabilities: Capabilities{ChatCompletions: true, Streaming: true, Tools: true, ModelsList: true},
+		Terms:        "unread: the provider's terms were not read. Its own docs page states that requests are processed to generate responses and that prompt and response bodies are not stored or retained; that is a page, not a terms document, and the owner confirms the terms before the row says shipped",
+		Evidence: []string{
+			"https://yolo-auto.com/docs (2026-09-23): base https://yolo-auto.com/v1, Authorization: Bearer yolo_..., OpenAI-compatible POST /v1/chat/completions with streaming, GET /v1/models (the public model ids with the plan-bounded context window and the thinking levels each accepts) and GET /v1/usage; the stable public aliases are yolo and yolo-small, and what sits behind them is the key's own listing, not a name baked in here",
+			"https://yolo-auto.com/ (2026-09-23): flat monthly plans with no per-token overage, a free tier, and the provider's own statement that prompt and response bodies are not retained",
+		},
+		Blockers: []string{
+			"no live key has answered a turn, so the row cannot say shipped",
+			"the terms are not read; the owner confirms them before the row says shipped",
+		},
+	},
+	{
 		Provider: "perplexity", Status: dispositionInvestigating,
 		AccessPath: "API key; the chat-completions endpoint is deprecated and the Agent API is Responses-shaped, which kolk does not speak",
 		APIBase:    "https://api.perplexity.ai",

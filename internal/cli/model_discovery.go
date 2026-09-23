@@ -38,6 +38,14 @@ func modelListerFor(connector string, gateway []provider.ModelInfo) provider.Mod
 		return provider.GatewayPreviewLister{Vendor: "gemini-api", Prefix: "google", Gateway: gateway}
 	case "xai-api":
 		return provider.GatewayPreviewLister{Vendor: "xai-api", Prefix: "x-ai", Gateway: gateway}
+	case "yolo-auto-api":
+		// A keyed vendor, and one whose names are not on the gateway: its
+		// catalog is served by its own GET /v1/models, which kolk reads live
+		// once its origin is the configured base URL and the key is stored.
+		// A gateway preview here would key on a prefix the gateway does not
+		// carry and print an empty list as though the vendor offered nothing,
+		// so the row says where the list actually comes from.
+		return provider.NotListable{Vendor: "yolo-auto-api", Reason: "its catalog is served by the vendor's own GET /v1/models, read live once https://yolo-auto.com/v1 is the configured base URL and the key is stored; there is nothing on the gateway to preview"}
 	case "perplexity-api":
 		return provider.GatewayPreviewLister{Vendor: "perplexity-api", Prefix: "perplexity", Gateway: gateway}
 	case "mistral-api":

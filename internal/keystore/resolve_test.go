@@ -102,7 +102,7 @@ func TestResolveWarnsOnAShapeMismatchAndDoesNotReroute(t *testing.T) {
 
 // The curated provider variables, and nothing derived from an id.
 func TestProviderEnvIsACuratedList(t *testing.T) {
-	for provider, want := range map[string]string{"openrouter": "OPENROUTER_API_KEY", "anthropic": "ANTHROPIC_API_KEY", "openai": "OPENAI_API_KEY", "google": "GEMINI_API_KEY", "xai": "XAI_API_KEY", "groq": "GROQ_API_KEY", "mistral": "MISTRAL_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "together": "TOGETHER_API_KEY", "perplexity": "PERPLEXITY_API_KEY", "some_new_thing": ""} {
+	for provider, want := range map[string]string{"openrouter": "OPENROUTER_API_KEY", "anthropic": "ANTHROPIC_API_KEY", "openai": "OPENAI_API_KEY", "google": "GEMINI_API_KEY", "xai": "XAI_API_KEY", "groq": "GROQ_API_KEY", "mistral": "MISTRAL_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "together": "TOGETHER_API_KEY", "perplexity": "PERPLEXITY_API_KEY", "yolo-auto": "YOLO_AUTO_API_KEY", "some_new_thing": ""} {
 		if got := ProviderEnv(provider); got != want {
 			t.Fatalf("ProviderEnv(%s) = %q, want %q", provider, got, want)
 		}

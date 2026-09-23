@@ -27,6 +27,10 @@ var planCatalog = []Plan{
 	// unsupported metadata; this row is the one kolk can use.
 	{Provider: "google", Name: "Gemini API", Connector: "gemini-api", Auth: "API key", Billing: "metered", Sandbox: false},
 	{Provider: "xai", Name: "Grok", Connector: "xai-api", Auth: "API key", Billing: "metered", Sandbox: false},
+	// Yolo-Auto is an independent OpenAI-compatible endpoint billed as a flat
+	// monthly plan rather than per token, so the key is the credential and the
+	// plan is the ceiling. Its catalog is the vendor's own /v1/models listing.
+	{Provider: "yolo-auto", Name: "Yolo-Auto", Connector: "yolo-auto-api", Auth: "API key", Billing: "subscription", Sandbox: false},
 	{Provider: "perplexity", Name: "Perplexity API", Connector: "perplexity-api", Auth: "API key", Billing: "metered", Sandbox: false},
 	{Provider: "mistral", Name: "Le Chat Pro", Connector: "mistral-api", Auth: "API key", Billing: "metered", Sandbox: false},
 	{Provider: "deepseek", Name: "DeepSeek", Connector: "deepseek-api", Auth: "API key", Billing: "metered", Sandbox: false},

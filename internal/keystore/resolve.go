@@ -33,6 +33,7 @@ var providerEnv = map[string]string{
 	"together":   "TOGETHER_API_KEY",
 	"deepseek":   "DEEPSEEK_API_KEY",
 	"perplexity": "PERPLEXITY_API_KEY",
+	"yolo-auto":  "YOLO_AUTO_API_KEY",
 }
 
 // ProviderEnv is the provider's own environment variable, or empty for a
